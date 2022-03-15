@@ -1,0 +1,25 @@
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#"><%= pageTitle %></a>
+      </div>
+      <ul class="nav navbar-nav">
+      <% if (isAuthenticated) { %>
+        <li class="<%= path === '/dashboard' ? 'active' : '' %>"><a href="dashboard">Dashboard</a></li>
+        <li class="<%= path === '/AddTrack' ? 'active' : '' %>"><a href="AddTrack">Add Track</a></li>
+     <% } %>
+       
+        <!-- <li class="<%= path === '/Edit' ? 'active' : '' %>"><a href="Edit">Edit</a></li> -->
+
+        <% if (!isAuthenticated) { %>
+          <li class="<%= path === '/Login' ? 'active' : '' %>"><a href="Login">Login</a></li>
+
+       <% } %>
+      <form action="Logout" method="post">
+        <button type="submit">Logout</button>
+      </form>
+       
+      </ul>
+    </div>
+  </nav>
